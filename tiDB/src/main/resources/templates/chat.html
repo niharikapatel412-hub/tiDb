@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Chat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white flex flex-col min-h-screen">
+
+<!-- Header -->
+<header class="bg-gray-800 p-4 text-center text-2xl font-bold text-indigo-400">
+    🧠 Spring AI Chat
+</header>
+
+<!-- Chat area -->
+<main id="chatBox" class="flex-1 overflow-y-auto p-4 space-y-4">
+    <div class="text-gray-400 text-sm">Welcome! Ask me anything...</div>
+</main>
+
+<!-- Input area -->
+<form id="chatForm" class="flex p-4 bg-gray-800">
+    <input id="userInput" type="text" class="flex-1 px-3 py-2 text-gray-900 rounded-l" placeholder="Type your message..." />
+    <button type="submit" class="bg-indigo-500 hover:bg-indigo-600 px-4 py-2 rounded-r">Send</button>
+</form>
+
+<script>
+    const chatForm = document.getElementById("chatForm");
+    const chatBox = document.getElementById("chatBox");
+    const userInput = document.getElementById("userInput");
+
+    chatForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const text = userInput.value.trim();
+      if (!text) return;
+
+      appendMessage(text, "user");
+      userInput.value = "";
+
+      try {
+        const res = await fetch(`/agent/ask?prompt=${encodeURIComponent(text)}`);
+        const reply = await res.text();
+        appendMessage(reply, "ai");
+      } catch (err) {
+        appendMessage("⚠️ Error fetching response", "ai");
+      }
+    });
+
+    function appendMessage(msg, sender) {
+      const div = document.createElement("div");
+      div.className = sender === "user"
+        ? "text-right text-blue-300"
+        : "text-left text-green-300";
+      div.textContent = msg;
+      chatBox.appendChild(div);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+  </script>
+</body>
+</html>
