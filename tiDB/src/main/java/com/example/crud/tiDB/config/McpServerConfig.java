@@ -1,9 +1,7 @@
 package com.example.crud.tiDB.config;
 
 import com.example.crud.tiDB.service.UserToolService;
-
 import com.example.crud.tiDB.service.DummyTool;
-
 import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.ai.tool.method.MethodToolCallbackProvider;
 import org.springframework.context.annotation.Bean;

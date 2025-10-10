@@ -1,6 +1,5 @@
 package com.example.crud.tiDB.controller;
 
-
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
 import org.springframework.ai.chat.memory.ChatMemory;
@@ -27,22 +26,6 @@ public class AgentController {
                 .defaultToolCallbacks(toolCallbackProvider)
                 .build();
     }
-
-//    @GetMapping("/ask")
-//    public String ask(@RequestParam String prompt,
-//                      @RequestParam(defaultValue = "default-session") String sessionId
-//    JdbcChatMemoryRepository chatMemoryRepository) {
-//
-//        MessageChatMemoryAdvisor advisor = MessageChatMemoryAdvisor.builder(chatMemory)
-//                .conversationId(sessionId)
-//                .build();
-//        return chatClient
-//                .prompt()
-//                .advisors(advisor)
-//                .user(prompt)
-//                .call()
-//                .content();
-//    }
 
     @GetMapping("/ask")
     public String ask(@RequestParam String prompt,
