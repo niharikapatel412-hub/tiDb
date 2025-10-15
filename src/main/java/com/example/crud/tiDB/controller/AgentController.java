@@ -1,5 +1,7 @@
 package com.example.crud.tiDB.controller;
 
+import com.example.crud.tiDB.models.User;
+
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
 import org.springframework.ai.chat.memory.ChatMemory;
@@ -31,6 +33,7 @@ public class AgentController {
     public String ask(@RequestParam String prompt,
                       @RequestParam(defaultValue = "default-session") String sessionId) {
 
+
         var chatMemory = MessageWindowChatMemory.builder()
                 .chatMemoryRepository(chatMemoryRepository)
                 .maxMessages(20)
@@ -44,18 +47,15 @@ public class AgentController {
                 .content();
     }
 
-    @GetMapping("/ask1")
-    public String askTest(@RequestParam String prompt) {
-        System.out.println("ChatClient called with prompt: " + prompt);
-
-        String response = chatClient
+    @GetMapping("/ask_test")
+    public User askTest(@RequestParam String prompt) {
+        String systemMessage = "Please don't add your pii information.";
+        return chatClient
                 .prompt()
+                .system(systemMessage)
                 .user(prompt)
                 .call()
-                .content();
-
-        System.out.println("Model response: " + response);
-        return response;
+                .entity(User.class);
     }
 }
 

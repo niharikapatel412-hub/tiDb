@@ -1,0 +1,5 @@
+#Issues faced during development
+
+1. Post adding RAG controller
+java.sql.SQLSyntaxErrorException: Table 'public.vector_store' doesn't exist
+--RAG configuration was missing
