@@ -56,18 +56,6 @@ public class AgentController {
                 .user(prompt)
                 .call()
                 .entity(User.class);
-    @GetMapping("/ask1")
-    public String askTest(@RequestParam String prompt) {
-        System.out.println("ChatClient called with prompt: " + prompt);
-
-        String response = chatClient
-                .prompt()
-                .user(prompt)
-                .call()
-                .content();
-
-        System.out.println("Model response: " + response);
-        return response;
     }
 }
 
