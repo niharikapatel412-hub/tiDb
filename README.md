@@ -20,8 +20,15 @@ Agentic TiDB CRUD Example
 
 ## User Interface Preview
 
-The app comes with a built-in chat interface for interacting with your AI agent and CRUD tools.[src/resources/templates/chat.html]
-Chat UI Screenshot : ![Chat UI Screenshot](src/resources/static/chatui.png)
+## 🖼️ User Interface Preview
+
+The app comes with a built-in chat interface for interacting with your AI agent and CRUD tools.  
+File: [src/main/resources/templates/chat.html](src/main/resources/templates/chat.html)
+
+### Chat UI Screenshot
+
+![Chat UI Screenshot](docs/images/chatui.png)
+
 
 ## Setup Instructions
 
