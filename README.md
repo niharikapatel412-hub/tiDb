@@ -1,8 +1,8 @@
 # Agentic TiDB CRUD Example
 
-This is a Spring Boot project that demonstrates CRUD operations using TiDB (a MySQL-compatible distributed database). 
+>This is a Spring Boot project that demonstrates CRUD operations using TiDB (a MySQL-compatible distributed database). 
 The project integrates with OpenAI's GPT-4 model for AI-based functionalities and leverages the MCP `@Tool` framework to enable agentic capabilities.
-Agentic TiDB CRUD Example
+
 
 ## Features
 - Agentic capabilities with MCP `@Tool`
