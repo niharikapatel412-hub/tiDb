@@ -20,8 +20,6 @@ The project integrates with OpenAI's GPT-4 model for AI-based functionalities an
 
 ## User Interface Preview
 
-## 🖼️ User Interface Preview
-
 The app comes with a built-in chat interface for interacting with your AI agent and CRUD tools.  
 File: [src/main/resources/templates/chat.html](src/main/resources/templates/chat.html)
 
